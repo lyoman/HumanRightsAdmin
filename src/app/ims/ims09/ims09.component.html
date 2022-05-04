@@ -1,0 +1,65 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">IMS-09</li>
+        </ol>
+    </nav>
+    <h2 class="header-style">IMS-09</h2>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category/monitoring-measurement-analysis']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/licenses.png" alt="monitoring-measurement-analysis">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Monitoring Measurement Analysis</h4>
+                            <small>
+                                <p class="card-text">Monitoring Measurement Analysis</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category/management-review-minutes']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/audit.png" alt="management-review-minutes">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Management Review Minutes</h4>
+                            <small>
+                                <p class="card-text">management-review-minutes</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category/action-plans']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/stats.png" alt="action-plans">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Action Plans</h4>
+                            <small>
+                                <p class="card-text">action-plans</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

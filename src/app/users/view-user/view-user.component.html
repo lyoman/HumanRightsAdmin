@@ -1,0 +1,103 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/users']">All Users-List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Full User Details</li>
+        </ol>
+    </nav>
+    <h2 class="header-style">Full User Details</h2>
+    <hr>
+
+
+    <div class="row">
+        <!-- <h3 class="content-style" style="text-align: center;width: 100%;">{{ 'Submitted Results' }}</h3> -->
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <table class="table table-responsive table-hover table-striped" *ngIf="race">
+                <thead>
+                    <th>Variable Name</th>
+                    <th>Details</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{ race.username }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>First Name</td>
+                        <td>{{ race.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>{{ race.last_name }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Email</td>
+                        <td><a href="mailto: {{ race.email }}" target="_blank">{{ race.email }}</a></td>
+                    </tr>
+
+                    <tr>
+                        <td>Phone Number</td>
+                        <td><a href="tel: {{ race.phone_number }}" target="_blank">{{ race.phone_number }}</a></td>
+                    </tr>
+
+                    
+
+                    <!-- employee empNo, firstname, nextOfKim, nextOfKinContact, phoneNumber, race, route, surname, userName -->
+
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <table class="table table-responsive table-hover table-striped" *ngIf="race">
+                <thead>
+                    <th>Variable Name</th>
+                    <th>Details</th>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>is_doctor</td>
+                        <td>{{ race.is_doctor }}</td>
+                    </tr> -->
+
+                   <!--  <tr>
+                        <td>Medicall Staffer</td>
+                        <td>{{ race.medicall_staffer }}</td>
+                    </tr> -->
+
+                    <tr>
+                        <td>Name of Business</td>
+                        <td>{{ race.business }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>is_active</td>
+                        <td>{{ race.is_active }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>is_staff</td>
+                        <td>{{ race.is_staff }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>is_superuser</td>
+                        <td>{{ race.is_superuser }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Timestamp</td>
+                        <td>{{ race.timestamp | date }} {{ race.timestamp | date: 'shortTime' }}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

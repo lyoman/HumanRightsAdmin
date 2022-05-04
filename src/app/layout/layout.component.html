@@ -1,0 +1,27 @@
+<!--page start-->
+<!-- <div class="page">
+
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+
+    <app-header></app-header>
+    <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+    <section [ngClass]="{ collapsed: collapedSideBar }" class="main-container push-left">
+        <router-outlet></router-outlet>
+    </section>
+
+</div> -->
+
+<div class="page">
+
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
+    <app-header></app-header>
+    <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
+    <section [ngClass]="{ collapsed: collapedSideBar }" class="main-container push-left">
+        <router-outlet></router-outlet>
+    </section>
+    <app-footer></app-footer>
+</div>

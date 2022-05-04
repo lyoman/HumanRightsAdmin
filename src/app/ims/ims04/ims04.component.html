@@ -1,0 +1,82 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">IMS-04</li>
+        </ol>
+    </nav>
+    <h2 class="header-style">IMS-04</h2>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['organograms']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/licenses.png" alt="Organograms">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Organograms</h4>
+                            <small>
+                                <p class="card-text">Organograms</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['process-flow-charts']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/stats.png" alt="Process flow charts">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Process flow charts</h4>
+                            <small>
+                                <p class="card-text">Process flow charts</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['needs-and-expectations']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/audit.png" alt="needs-and-expectations">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Needs and Expectations</h4>
+                            <small>
+                                <p class="card-text">Needs and expectations of workers and intrested parties</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['complaints-register']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/she-reporting.png" alt="complaints-register">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Complaints Register</h4>
+                            <small>
+                                <p class="card-text">Complaints register of intrested parties and workers</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

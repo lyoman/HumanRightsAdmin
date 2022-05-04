@@ -1,0 +1,79 @@
+<div class="">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+      <!-- <li class="breadcrumb-item"><a [routerLink]="['/ims-04']">IMS-04</a></li> -->
+      <li class="breadcrumb-item active" aria-current="page">Added Stock</li>
+    </ol>
+  </nav>
+  <h2 class="header-style">All Added Stock</h2>
+  <hr>
+
+  <div class="row">
+    <div class="form-group col-md-5">
+                <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" />
+            </div>
+
+            <div class="col-md-2 justify-content-end">
+                <button [routerLink]="['new']" class="btn btn-primary">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+  </div>
+
+  <div class="row mat-elevation-z8" *ngIf="!loading">
+    <!-- <h3 class="content-style" style="text-align: center;width: 100%;">{{ 'Submitted Results' }}</h3> -->
+    <table class="table table-bordered table-responsive table-striped table-hover raw-materials" *ngIf="userResults">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Timestamp</th>
+          <th>View</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="details"
+          *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
+          <td>
+            <p>{{ m.name }}</p>
+          </td>
+          
+          <td>
+            <p>{{ m.quantity }}</p>
+          </td>
+          <td>
+            <p>{{ m.amount }}</p>
+          </td>
+          <td>
+            <p>{{ m.description }}</p>
+          </td>
+          <td>
+            <p>{{ m.timestamp | date }} {{ m.timestamp | date: "shortTime" }}</p>
+          </td>
+          
+          <td>
+            <button [routerLink]=" ['viewstock', m.id]" class="btn btn-success">
+              <i class="fa fa-play"></i>
+            </button>&nbsp;
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="userResults" class="col-sm-12 row d-flex justify-content-center">
+      <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="userResults.length">
+      </ngb-pagination>
+    </div>
+    <!-- all participants -->
+  </div>
+
+  <div *ngIf="loading" class="text text-center myloader">
+    <img height="200" width="auto" src="assets/images/tenor.gif">
+    <div class="text">
+      Loading....
+    </div>
+  </div>
+</div>

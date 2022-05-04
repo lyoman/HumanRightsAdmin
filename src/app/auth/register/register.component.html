@@ -1,0 +1,140 @@
+<div class="row">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <a style="max-height: 90px;" class="navbar-brand" href="/auth/login"><img style="height: 40px;"
+        src="assets/images/header_logo.png"> </a>
+    <button class="navbar-toggler" type="button">
+      <span class="navbar-toggler-icon"></span>
+      <i aria-hidden="true" class="fa fa-bars text-muted"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <div class="nav-item thelogin">
+            <a class="nav-link" [routerLink]="['/auth/login']">
+              <i class="fa fa-user"></i> Login<b class="caret"></b>
+            </a>
+          </div>
+        </li>
+
+        <li class="nav-item theregister">
+          <div class="nav-item">
+            <a class="nav-link" [routerLink]="['#']">
+              <i class="fa fa-fw fa-power-off"></i> Register<b class="caret"></b>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div [@routerTransition] class="login-page"
+  style="clear: both; background: url('assets/images/bg.png');background-repeat: repeat-y;background-size: cover;height: 100%;padding-top: 5%;">
+
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/auth/login']">Login</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Registration</li>
+      </ol>
+    </nav>
+    <h2 class="header-style">Smart Accounting Registration</h2>
+    <!-- <h3 class="content-style" style="text-align: center;">{{ 'PlantName' }}</h3> -->
+    <hr>
+    <div *ngIf="!loading">
+
+      <form class="mb-4" autocomplete="off" [formGroup]="regForm" (ngSubmit)="saveRegister(regForm.value)">
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label>First name</label>
+            <input type="text" placeholder="first_name" class="form-control input-underline input-lg"
+              formControlName="first_name" name="first_name" id="first_name">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Last name</label>
+            <input type="text" placeholder="last_name" class="form-control input-underline input-lg"
+              formControlName="last_name" name="last_name" id="last_name">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Phone number</label>
+            <input type="text" placeholder="07750784XX" class="form-control input-underline input-lg"
+              formControlName="phone_number" name="phone_number" id="phone_number">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="email" placeholder="me@mail.com" class="form-control input-underline input-lg"
+              formControlName="email" name="email" id="email">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Username</label>
+            <input type="text" placeholder="username" class="form-control input-underline input-lg"
+              formControlName="username" name="username" id="username">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Password</label>
+            <input type="password" placeholder="*****************" class="form-control input-underline input-lg"
+              name="password" required formControlName="password" id="password">
+          </div>
+          <div class="form-group col-md-6">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="*****************" class="form-control input-underline input-lg"
+              formControlName="confirmpassword" name="confirmpassword" id="confirmpassword">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Name of Business</label>
+            <input type="text" placeholder="business" class="form-control input-underline input-lg"
+              formControlName="business" name="business" id="business">
+          </div>
+
+
+          <!-- <div class="form-group col-md-6">
+            <label>Medicall Staffer</label>
+            <select class="form-control input-underline input-lg" formControlName="medicall_staffer"
+              name="medicall_staffer" id="medicall_staffer">
+              <option value="Family Practice Physician">Family Practice Physician</option>
+              <option value="Internal Medicine Physician">Internal Medicine Physician</option>
+              <option value="Primary Care Physician">Primary Care Physician</option>
+              <option value="Registered Nurse">Registered Nurse</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Specialist Area</label>
+            <select class="form-control input-underline input-lg" formControlName="specialist_area"
+              name="specialist_area" id="specialist_area">
+              <option value="Allergist">Allergist</option>
+              <option value="Anesthesiologist">Anesthesiologist</option>
+              <option value="Pediatrician">Pediatrician</option>
+              <option value="Cardiologist">Cardiologist</option>
+            </select>
+          </div> -->
+
+          <!-- <div class="form-group col-md-6">
+                        <label>is_physician</label>
+                        <select class="form-control input-underline input-lg" formControlName="is_physician" name="is_physician" id="is_physician">
+                            <option value="true">True</option>
+                            <option value="false">False</option>
+                        </select>
+                    </div> -->
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-lg btn-block btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+
+    <div *ngIf="loading" class="text text-center myloader">
+      <img height="200" width="auto" src="assets/images/tenor.gif">
+      <div class="text">
+        Loading....
+      </div>
+    </div>
+  </div>
+
+</div>

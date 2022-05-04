@@ -1,0 +1,146 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <!-- <li class="breadcrumb-item"><a [routerLink]="['/addstock']">Added Stock</a></li> -->
+            <li class="breadcrumb-item active" aria-current="page">Financial Summary</li>
+        </ol>
+    </nav>
+
+    <h2 class="header-style">Financial Summary / Profit or Loss $ {{ profitloss }}</h2>
+    <hr>
+
+
+    <div class="row" *ngIf="!loading">
+
+
+        <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"> -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="bought">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Cash Out Flow</h4>
+                        <h5 class="card-text">$ {{ totalAmountBought }}</h5>
+                        <small>
+                      <!-- <p class="card-text">View All current Stock<p> -->
+                      <!-- <p class="card-text">Clause 5.0</p> -->
+                    </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- </div> -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="bought">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Quantity Bought</h4>
+                        <h5 class="card-text">{{ totalQuantityBought }}</h5>
+                        <small>
+                  <!-- <p class="card-text">View All current Stock<p> -->
+                  <!-- <p class="card-text">Clause 5.0</p> -->
+                </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="bought">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Total Orders Made</h4>
+                        <h5 class="card-text">{{ totalStockOrdered }}</h5>
+                        <small>
+                <!-- <p class="card-text">View All current Stock<p> -->
+                <!-- <p class="card-text">Clause 5.0</p> -->
+              </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="loading" class="text text-center myloader">
+        <img height="200" width="auto" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div>
+    <br/>
+    <hr>
+
+
+    <h2 class="content-style">Sold Stock Details</h2>
+
+    <div class="row mat-elevation-z8" *ngIf="!loading1">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="sold">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Cash In Flow</h4>
+                        <h5 class="card-text">$ {{ totalAmountSold }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="sold">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Total items sold</h4>
+                        <h5 class="card-text">{{ totalQuantitySold }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="profitloss == 0">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Profit / Loss</h4>
+                        <h5 class="card-text">{{ profitloss }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="profitloss > 0">
+            <div class="card-deck" style="background-color: green;">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Profit</h4>
+                        <h5 class="card-text">$ {{ profitloss }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center" *ngIf="profitloss < 0">
+            <div class="card-deck" style="background-color: red;">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Loss</h4>
+                        <h5 class="card-text">$ {{ profitloss }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf="loading1" class="text text-center myloader">
+        <img height="200" width="auto" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div>
+
+</div>

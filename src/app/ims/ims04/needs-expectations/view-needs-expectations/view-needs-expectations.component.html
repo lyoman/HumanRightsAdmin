@@ -1,0 +1,116 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/ims-04']">IMS-04</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/ims-04/needs-and-expectations']">Needs and Expectations</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Needs and Expectations Details</li>
+      </ol>
+    </nav>
+    <h2 class="header-style">Needs and Expectations Details</h2>
+    <hr>
+  
+  
+    <div class="row mat-elevation-z8">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <table class="table table-responsive table-hover table-striped" *ngIf="race">
+          <thead>
+            <th>Variable Name</th>
+            <th>Details</th>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>File ID</td>
+              <td>{{ race.id }}</td>
+            </tr>
+            <tr>
+              <td>File Name</td>
+              <td>{{ race.name }}</td>
+            </tr>
+  
+            <tr>
+              <td>Description</td>
+              <td>{{ race.description }}</td>
+            </tr>
+  
+            <tr>
+              <td>Is Active Status</td>
+              <td>{{ race.active }}</td>
+            </tr>
+  
+            <tr>
+              <td>Timestamp</td>
+              <td>{{ race.timestamp | date }} {{ race.timestamp | date: 'shortTime' }}</td>
+            </tr>
+  
+  
+            <tr>
+              <td>Updated</td>
+              <td>{{ race.updated | date }} {{ race.updated | date: 'shortTime' }}</td>
+            </tr>
+  
+          </tbody>
+        </table>
+  
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <table class="table table-responsive table-hover table-striped" *ngIf="race">
+          <thead>
+            <th>Variable Name</th>
+            <th>Uploader Details</th>
+          </thead>
+          <tbody>
+  
+            <tr>
+              <td>Username</td>
+              <td>{{ race.user.username }}</td>
+            </tr>
+  
+  
+            <tr *ngIf="race.user.phone_number">
+              <td>Phone Number</td>
+              <td><a href="tel: {{ race.user.phone_number }}" target="_blank">{{ race.user.phone_number }}</a></td>
+            </tr>
+  
+            <tr>
+              <td>Email</td>
+              <td><a href="mailto: {{ race.user.email }}" target="_blank">{{ race.user.email }}</a></td>
+            </tr>
+  
+            <tr>
+              <td>Role</td>
+              <td>{{ race.user.role }}</td>
+            </tr>
+  
+            <tr>
+              <td>Designation</td>
+              <td>{{ race.user.designation }}</td>
+            </tr>
+  
+            <tr *ngIf="race.user.first_name">
+              <td>First Name</td>
+              <td>{{ race.user.first_name }}</td>
+            </tr>
+  
+            <tr *ngIf="race.user.last_name">
+              <td>Last Name</td>
+              <td>{{ race.user.last_name }}</td>
+            </tr>
+  
+            <tr>
+              <td>Organogram File</td>
+              <td>
+                <a class="btn btn-success" href="{{ race.needs_expetations_file }}" target="_blank">
+                  <i class="fa fa-download"></i> Download
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+      </div>
+  
+    </div>
+  </div>
+  

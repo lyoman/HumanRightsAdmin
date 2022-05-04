@@ -1,0 +1,147 @@
+<div class="">
+    <h2 class="content-style">Smart Accounting Main Dashboard</h2>
+    <h3 class="header-style" style="text-align: center;" *ngIf="is_superuser">Welcome, Admin User</h3>
+    <h3 class="header-style" style="text-align: center;" *ngIf="!is_superuser">Welcome {{ username }} | {{ oneuserDetails.business }}</h3>
+    <hr>
+    <div class="row" *ngIf="!loading">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/addstock/new']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/warehouse.png" alt="addstock">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Add New Stock</h4>
+                            <small>
+                      <p class="card-text">Add new stock in the system</p>
+                      <!-- <p class="card-text">Clause 4.0</p> -->
+                    </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/addstock']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/budget.png" alt="viewstock">
+
+                        <div class="card-body">
+                            <h4 class="card-title">View Stock</h4>
+                            <small>
+                      <p class="card-text">View All current Stock<p>
+                      <!-- <p class="card-text">Clause 5.0</p> -->
+                    </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/sellstock/new']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/accounting.png" alt="selling">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Sell Stock</h4>
+                            <small>
+                      <p class="card-text">Selling Stock</p>
+                      <!-- <p class="card-text">Clause 9.0</p> -->
+                    </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/sellstock']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/growth.png" alt="soldstock">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Sold Stock</h4>
+                            <small>
+                      <p class="card-text">View Sold Stock</p>
+                      <!-- <p class="card-text">Clause 10.0</p> -->
+                    </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>t
+
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/financial']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/financial-presentation.png" alt="financial">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Financial Summary</h4>
+                            <small>
+                      <p class="card-text">View cash inflows and out flows</p>
+                      <!-- <p class="card-text">Clause 10.0</p> -->
+                    </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center" *ngIf="is_superuser">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/users']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/acquisition.png" alt="users">
+
+                        <div class="card-body">
+                            <h4 class="card-title">View Users ({{ userDetails.length }})</h4>
+                            <small>
+                                <p class="card-text">View All users list</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3  col-sm-2 col-xs-2 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['/profile']">
+                        <img class="card-img-top img-fluid" src="assets/images/patient.png" alt="profile">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Profile</h4>
+                            <small>
+                                <p class="card-text">View current profile</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div *ngIf="loading" class="text text-center" style="margin-top: 10%;">
+        <img style="height: 100px; width:auto;" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div>
+</div>

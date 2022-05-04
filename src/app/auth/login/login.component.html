@@ -1,0 +1,35 @@
+<!-- <div [@routerTransition] class="login-page" style="background: url('assets/images/bg.png');background-repeat: no-repeat;"> -->
+<div [@routerTransition] class="login-page" style="background: #043c84;background-repeat: no-repeat;background-size: cover;">
+    <div *ngIf="!loading" class="row justify-content-md-center">
+        <div class="col-md-4 outline">
+            <img class="user-avatar" src="assets/images/login/login.png" style="width: 65%;" />
+            <h1>Smart Accounting Login</h1>
+            <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="form-group">
+                    <input [placeholder]="'Username'" class="form-control input-underline input-lg" type="text" #pwd="ngModel" name="username" [(ngModel)]="formModel.username" required />
+                </div>
+                <div class="form-group">
+                    <input [placeholder]="'Password'" class="form-control input-underline input-lg" type="password" #pwd="ngModel" name="password" [(ngModel)]="formModel.password" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button id="loginbtn" type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Login</button>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <a id="btnRegister" style="color: white;font-size: large;" class="register-btn" [routerLink]="['/auth/register']">
+                            <p id="bvuma">Does not have an account?</p> Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="text text-center" style="margin-top: 10%;">
+        <img height="200" width="auto" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div>
+</div>

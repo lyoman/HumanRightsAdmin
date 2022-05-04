@@ -1,0 +1,439 @@
+<!-- <div [@routerTransition] class="login-page" style="background: lightblue;">
+    <div *ngIf="!loading" class="row justify-content-md-center">
+        <div class="col-md-4 outline">
+            <img class="user-avatar" src="assets/images/logo.png" width="160px" />
+            <h1>eDoctor Login</h1>
+            <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
+                <div class="form-group">
+                    <input [placeholder]="'Username'" class="form-control input-underline input-lg" type="text" #pwd="ngModel" name="username" [(ngModel)]="formModel.username" required />
+                </div>
+                <div class="form-group">
+                    <input [placeholder]="'Password'" class="form-control input-underline input-lg" type="password" #pwd="ngModel" name="password" [(ngModel)]="formModel.password" required />
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-lg btn-block" [disabled]="form.invalid">Login</button>
+                    </div>
+                    <div class="form-group col-md-8 offset-md-2">
+                        <p>Does not have an Account? <a [routerLink]="['/register']">Register</a></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div *ngIf="loading" class="text text-center" style="margin-top: 10%;">
+        <img height="200" width="auto" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div>
+</div> -->
+
+
+<!-- Main Wrapper -->
+<div [@routerTransition] class="main-wrapper">
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg header-nav">
+            <div class="navbar-header">
+                <a id="mobile_btn" href="javascript:void(0);">
+                    <span class="bar-icon">
+                        <span></span>
+                    <span></span>
+                    <span></span>
+                    </span>
+                </a>
+                <a [routerLink]="['/']" class="navbar-brand logo">
+                    <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <div class="menu-header">
+                    <a [routerLink]="['/']" class="menu-logo">
+                        <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
+                    </a>
+                    <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                        <i class="fas fa-times"></i>
+                    </a>
+                </div>
+                <ul class="main-nav">
+                    <li class="active">
+                        <a [routerLink]="['/']">Home</a>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a [routerLink]="['/doctor']">Doctor Dashboard</a></li>
+                            <li><a [routerLink]="['/']">Appointments</a></li>
+                            <li><a [routerLink]="['/']">Schedule Timing</a></li>
+                            <li><a [routerLink]="['/']">Patients List</a></li>
+                            <li><a [routerLink]="['/doctor/chat']">Chat</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a [routerLink]="['/']">Patients <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a [routerLink]="['/']">Login</a></li>
+                            <li><a [routerLink]="['/']">Patient Dashboard</a></li>
+                            <li><a [routerLink]="['/']">Chat</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="has-submenu">
+                        <a href="#">Pharmacy <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="pharmacy-index.html">Pharmacy</a></li>
+                            <li><a href="pharmacy-details.html">Pharmacy Details</a></li>
+                            <li><a href="pharmacy-search.html">Pharmacy Search</a></li>
+                            <li><a href="product-all.html">Product</a></li>
+                            <li><a href="product-description.html">Product Description</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="product-checkout.html">Product Checkout</a></li>
+                            <li><a href="payment-success.html">Payment Success</a></li>
+                        </ul>
+                    </li> -->
+
+                    <li class="has-submenu">
+                        <a href="#" target="_blank">Admin <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a [routerLink]="['login']" target="_blank">Admin</a></li>
+                            <li><a [routerLink]="['login']" target="_blank">Pharmacy Admin</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav header-navbar-rht">
+                <li class="nav-item contact-item">
+                    <div class="header-contact-img">
+                        <i class="far fa-hospital"></i>
+                    </div>
+                    <div class="header-contact-detail">
+                        <p class="contact-header">Contact</p>
+                        <p class="contact-info-header"> +263 775 078468</p>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link header-login" [routerLink]="['/auth/login']">login / Signup </a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link header-login" [routerLink]="['/login']">log out </a>
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+    <!-- /Header -->
+
+    <!-- Home Banner -->
+    <section class="section section-search">
+        <div class="container-fluid">
+            <div class="banner-wrapper">
+                <div class="banner-header text-center">
+                    <h1>E-Doctor, Make an Appointment</h1>
+                    <p>Discover the best doctors, clinic &amp; hospital the city nearest to you.</p>
+                </div>
+
+                <!-- Search -->
+                <div class="search-box">
+                    <form>
+                        <div class="form-group search-location">
+                            <input type="text" class="form-control" placeholder="Search Location">
+                            <span class="form-text">Based on your Location</span>
+                        </div>
+                        <div class="form-group search-info">
+                            <input type="text" class="form-control" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
+                            <span class="form-text">Ex : Dental or Sugar Check up etc</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i>
+                            <span>Search</span></button>
+                    </form>
+                </div>
+                <!-- /Search -->
+
+            </div>
+        </div>
+    </section>
+    <!-- /Home Banner -->
+
+    <section class="section home-tile-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9 m-auto">
+                    <div class="section-header text-center">
+                        <h2>What are you looking for?</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 mb-3">
+                            <div class="card text-center doctor-book-card">
+                                <img src="assets/images/img-pharmacy1.jpg" alt="" class="img-fluid">
+                                <div class="doctor-book-card-content tile-card-content-1">
+                                    <div>
+                                        <h3 class="card-title mb-0">Visit a Doctor</h3>
+                                        <a [routerLink]="['/doctor']" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <div class="card text-center doctor-book-card">
+                                <img src="assets/images/img-pharmacy1.jpg" alt="" class="img-fluid">
+                                <div class="doctor-book-card-content tile-card-content-1">
+                                    <div>
+                                        <h3 class="card-title mb-0">Find a Pharmacy</h3>
+                                        <!-- <a class="btn book-btn1 px-3 py-2 mt-3" [routerLink]="['/pharmacy']" tabindex="0">Let's go</a> -->
+                                        <a class="btn book-btn1 px-3 py-2 mt-3" [routerLink]="['/pharmacy']" tabindex="0">Coming soon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-3">
+                            <div class="card text-center doctor-book-card">
+                                <img src="assets/images/lab-image.jpg" alt="" class="img-fluid">
+                                <div class="doctor-book-card-content tile-card-content-1">
+                                    <div>
+                                        <h3 class="card-title mb-0">Find a Lab</h3>
+                                        <a [routerLink]="['/lab']" class="btn book-btn1 px-3 py-2 mt-3" tabindex="0">Coming Soon</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic and Specialities -->
+    <section class="section section-specialities">
+        <div class="container-fluid">
+            <div class="section-header text-center">
+                <h2>Doctors Specialities</h2>
+                <p class="sub-title">E-doctor offers different doctors that specialize in different categories to ensure that you get the maximum health attention.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-9">
+                    <!-- Slider -->
+                    <div class="specialities-slider slider slick-initialized slick-slider slick-dotted">
+                        <div class="slick-list draggable">
+                            <div class="slick-track" style="opacity: 1; width: 25000px; transform: translate3d(-194px, 0px, 0px);">
+                                <div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Dentist</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-slide" data-slick-index="0" aria-hidden="true" role="tabpanel" id="slick-slide00" aria-describedby="slick-slide-control00" tabindex="-1">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-01.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Urology</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-slide slick-current slick-active" data-slick-index="1" aria-hidden="false" role="tabpanel" id="slick-slide01" aria-describedby="slick-slide-control01">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-02.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Neurology</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide02" aria-describedby="slick-slide-control02">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Orthopedic</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-slide" data-slick-index="3" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide03" aria-describedby="slick-slide-control03">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-04.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Cardiologist</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slick-slide" data-slick-index="4" aria-hidden="true" tabindex="-1" role="tabpanel" id="slick-slide04" aria-describedby="slick-slide-control04">
+                                    <div>
+                                        <div class="speicality-item text-center" style="width: 100%; display: inline-block;">
+                                            <div class="speicality-img">
+                                                <img src="assets/img/specialities/specialities-05.png" class="img-fluid" alt="Speciality">
+                                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                            </div>
+                                            <p>Dentist</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Slider -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Clinic and Specialities -->
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <!-- Footer Top -->
+        <div class="footer-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-about">
+                            <div class="footer-logo">
+                                <img src="assets/images/footer-logo.png" alt="logo">
+                            </div>
+                            <div class="footer-about-content">
+                                <p>E-Doctor is an online platform that helps anyone to find doctors and book appointments online. In addition to finding doctors, the platform also helps to locate the nearest pharmacy with contains a specific prescription
+                                    for a patient. </p>
+                                <div class="social-icon">
+                                    <ul>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i> </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank"><i class="fab fa-dribbble"></i> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Patients</h2>
+                            <ul>
+                                <li><a [routerLink]="['/']">Search for Doctors</a></li>
+                                <li><a [routerLink]="['/auth/login']">Login</a></li>
+                                <li><a [routerLink]="['/auth/register']">Register</a></li>
+                                <li><a [routerLink]="['/']">Booking</a></li>
+                                <li><a [routerLink]="['/']">Patient Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-menu">
+                            <h2 class="footer-title">For Doctors</h2>
+                            <ul>
+                                <li><a [routerLink]="['/']">Appointments</a></li>
+                                <li><a [routerLink]="['/']">Chat</a></li>
+                                <li><a [routerLink]="['/auth/login']">Login</a></li>
+                                <li><a [routerLink]="['/auth/register']">Register</a></li>
+                                <li><a [routerLink]="['/']">Doctor Dashboard</a></li>
+                            </ul>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <!-- Footer Widget -->
+                        <div class="footer-widget footer-contact">
+                            <h2 class="footer-title">Contact Us</h2>
+                            <div class="footer-contact-info">
+                                <div class="footer-address">
+                                    <span><i class="fas fa-map-marker-alt"></i></span>
+                                    <p> 22 Amby Drive,<br> Masasa, Harare </p>
+                                </div>
+                                <p>
+                                    <i class="fas fa-phone-alt"></i> +263 775 078 468
+                                </p>
+                                <p class="mb-0">
+                                    <i class="fas fa-envelope"></i> edoctor@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                        <!-- /Footer Widget -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /Footer Top -->
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container-fluid">
+
+                <!-- Copyright -->
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6">
+                            <div class="copyright-text">
+                                <p class="mb-0">© 2021 E-Doctor. All rights reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+
+                            <!-- Copyright Menu -->
+                            <div class="copyright-menu">
+                                <ul class="policy-menu">
+                                    <li><a [routerLink]="['/terms-conditions']">Terms and Conditions</a></li>
+                                    <li><a [routerLink]="['/policy']">Policy</a></li>
+                                </ul>
+                            </div>
+                            <!-- /Copyright Menu -->
+
+                        </div>
+                    </div>
+                </div>
+                <!-- /Copyright -->
+
+            </div>
+        </div>
+        <!-- /Footer Bottom -->
+
+    </footer>
+    <!-- /Footer -->
+
+</div>
+<!-- /Main Wrapper -->
+
+
+<div class="sidebar-overlay"></div>

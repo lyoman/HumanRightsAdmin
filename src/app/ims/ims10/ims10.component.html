@@ -1,0 +1,65 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">IMS-10</li>
+        </ol>
+    </nav>
+    <h2 class="header-style">IMS-10</h2>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'accident']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/licenses.png" alt="Accident Investigation Reports">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Accident Investigation Reports</h4>
+                            <small>
+                                <p class="card-text">Accident Investigation Reports</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'nearmiss']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/audit.png" alt="Near Miss Report">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Near Miss Report</h4>
+                            <small>
+                                <p class="card-text">Near Miss Report</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'stopfix']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/stats.png" alt="Stop and Fix Reports">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Stop and Fix Reports</h4>
+                            <small>
+                                <p class="card-text">Stop and Fix Reports</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

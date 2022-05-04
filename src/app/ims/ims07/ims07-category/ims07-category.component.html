@@ -1,0 +1,73 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/ims-07']">IMS 07</a></li>
+            <!-- <li class="breadcrumb-item"><a [routerLink]="['/ims-06/category/' + choosenCtg]">Categories</a></li> -->
+            <li class="breadcrumb-item active" aria-current="page" *ngIf="displayName">{{ displayName }}</li>
+        </ol>
+    </nav>
+    <h2 class="header-style" *ngIf="displayName">{{ displayName }}</h2>
+    <hr>
+
+    <div class="row">
+        <div class="form-group col-md-6">
+            <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- <h3 class="content-style" style="text-align: center;width: 100%;">{{ 'Submitted Results' }}</h3> -->
+        <table class="table table-bordered table-responsive table-striped table-hover raw-materials" *ngIf="displayArray">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>description</th>
+                    <th>timestamp</th>
+                    <th>Active</th>
+                    <th>File</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr class="details" *ngFor="let m of displayArray  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
+                    <td>
+                        <p>{{ m.category }}</p>
+                    </td>
+
+                    <td>
+                        <p>{{ m.description }}</p>
+                    </td>
+                    <td>
+                        <p>{{ m.timestamp | date }} {{ m.timestamp | date: "shortTime" }}</p>
+                    </td>
+                    <td>
+                        <p>{{ m.active }}</p>
+                    </td>
+                    <td>
+                        <p><a download="{{ m.upload_file }}" href="{{ m.upload_file }}" target="_blank">Download File</a></p>
+                    </td>
+                    <td>
+                        <button [routerLink]=" ['details', m]" class="btn btn-success">
+                    <i class="fa fa-play"></i>
+                    </button>&nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="displayArray" class="col-sm-12 row d-flex justify-content-center">
+            <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="displayArray.length">
+            </ngb-pagination>
+        </div>
+        <!-- all participants -->
+    </div>
+
+    <!-- <div *ngIf="loading" class="text text-center myloader">
+        <img height="200" width="auto" src="assets/images/tenor.gif">
+        <div class="text">
+            Loading....
+        </div>
+    </div> -->
+</div>

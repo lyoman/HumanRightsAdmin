@@ -1,0 +1,134 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'bootstrap/bootstrap';
+@import 'spinner';
+@import 'utils';
+@import 'rtl';
+@import 'responsive';
+// @import "./font-awesome.min.css";
+@import "./css.css";
+@import "./icon.css";
+@media print {
+    .breadcrumb {
+        display: none !important;
+    }
+}
+
+.mat-typography {
+    height: 100% !important;
+    // background: #093260;
+}
+
+@media (min-width: 1200px) {
+    .col-xl-8 {
+        flex: 0 0 66.6666666667%;
+        max-width: 40% !important;
+    }
+}
+
+.card-img-top {
+    width: 80%;
+    height: auto;
+    text-align: center;
+    margin: auto;
+}
+
+.mb-4 a {
+    text-align: center;
+}
+
+.card-deck {
+    max-width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+    .push-left {
+        margin-left: 235px;
+    }
+}
+
+.push-left {
+    margin-top: 6%;
+}
+
+.main-container[_ngcontent-yne-c191] {
+    margin-left: 135px;
+}
+
+.content-style {
+    background-color: lightslategrey;
+    padding: 5px;
+}
+
+.header-style {
+    background-color: #c79c1c;
+    padding: 5px;
+}
+
+.raw-materials td {
+    width: 20px;
+}
+
+.form-control-color {
+    width: 100px;
+    height: 100px;
+}
+
+.content-style {
+    background-color: lightslategrey;
+    padding: 5px;
+}
+
+.header-style {
+    background-color: #c79c1c;
+    padding: 5px;
+}
+
+.click-deck {
+    cursor: pointer;
+}
+
+.color-radios {
+    margin-top: 2%;
+}
+
+input[type=radio] {
+    padding: 1%;
+    margin: 0% 2%;
+}
+
+.details {
+    cursor: pointer;
+}
+
+.table-responsive {
+    display: table !important;
+}
+
+.row {
+    margin: 0;
+}
+
+.col-5 {
+    padding-left: 0%;
+}
+
+.content-style {
+    background-color: lightslategrey;
+    padding: 5px;
+}
+
+.header-style {
+    background-color: #c79c1c;
+    padding: 5px;
+}
+
+.cursor-pointer:hover {
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.screenData {
+    font-size: x-small;
+    list-style-type: none;
+}

@@ -1,0 +1,64 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">IMS-07</li>
+        </ol>
+    </nav>
+    <h2 class="header-style">IMS-07</h2>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'Communication']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/licenses.png" alt="Communication">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Communication</h4>
+                            <small>
+                                <p class="card-text">Communication</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'AT']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/stats.png" alt="Awareness/ Trainings">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Awareness/ Trainings</h4>
+                            <small>
+                                <p class="card-text">Awareness/ Trainings</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-4 align-items-center">
+            <div class="card-deck">
+                <div class="card mb-4">
+                    <a [routerLinkActive]="['router-link-active']" [routerLink]="['category', 'Competence']">
+                        <img class="card-img-top img-fluid" src="assets/images/dashboard/audit.png" alt="Competence">
+
+                        <div class="card-body">
+                            <h4 class="card-title">Competence</h4>
+                            <small>
+                                <p class="card-text">Competence</p>
+                            </small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

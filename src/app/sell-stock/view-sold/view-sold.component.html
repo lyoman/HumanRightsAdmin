@@ -1,0 +1,123 @@
+<div class="">
+    <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
+      <li class="breadcrumb-item"><a [routerLink]="['/sellstock']">Sold Stock</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Sold Stock Details</li>
+    </ol>
+  </nav>
+
+    <h2 class="header-style">Sold Stock Details</h2>
+    <hr>
+  
+  
+    <div class="row mat-elevation-z8" *ngIf="!loading">
+
+		
+	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="race">
+	    <table class="table table-responsive table-hover table-striped">
+	      <thead>
+	        <th>Variable Name</th>
+	        <th>Details</th>
+	      </thead>
+
+	      <tbody>
+	        <tr>
+	          <td>Name</td>
+	          <td>{{ race.stockname.name }}</td>
+	        </tr>
+	        <tr>
+	          <td>Quantity</td>
+	          <td>{{ race.quantity }}</td>
+	        </tr>
+
+	        <tr>
+	          <td>Description</td>
+	          <td>{{ race.description }}</td>
+	        </tr>
+
+	        <tr>
+	          <td>Amount</td>
+	          <td>{{ race.amount }}</td>
+	        </tr>
+
+	        <tr>
+	          <td>Date</td>
+	          <td>{{ race.timestamp | date }}</td>
+	        </tr>
+
+	        <tr>
+	          <td>Timestamp</td>
+	          <td>{{ race.timestamp | date }} {{ race.timestamp | date: 'shortTime' }}</td>
+	        </tr>
+
+	        <tr>
+	          <td>Updated</td>
+	          <td>{{ race.updated | date }} {{ race.updated | date: 'shortTime' }}</td>
+	        </tr>
+
+	      </tbody>
+	    </table>
+	  </div>
+
+	  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngIf="race">
+	    <table class="table table-responsive table-hover table-striped">
+	      <thead>
+	        <th>Variable Name</th>
+	        <th>Uploader Details</th>
+	      </thead>
+	      <tbody>
+
+	      	<tr>
+	          <td>Business Name</td>
+	          <td>{{ race.user.business }}</td>
+	        </tr>
+
+
+	        <tr>
+	          <td>Username</td>
+	          <td>{{ race.user.username }}</td>
+	        </tr>
+
+
+	        <tr *ngIf="race.user.phone_number">
+	          <td>Phone Number</td>
+	          <td><a href="tel: {{ race.user.phone_number }}" target="_blank">{{ race.user.phone_number }}</a></td>
+	        </tr>
+
+	        <tr>
+	          <td>Email</td>
+	          <td><a href="mailto: {{ race.user.email }}" target="_blank">{{ race.user.email }}</a></td>
+	        </tr>
+
+	        <tr *ngIf="race.user.first_name">
+	          <td>First Name</td>
+	          <td>{{ race.user.first_name }}</td>
+	        </tr>
+
+	        <tr *ngIf="race.user.last_name">
+	          <td>Last Name</td>
+	          <td>{{ race.user.last_name }}</td>
+	        </tr>
+
+
+	        <tr>
+	          <td>Database ID</td>
+	          <td>{{ race.id }}</td>
+	        </tr>
+
+	      </tbody>
+	    </table>
+	  </div>
+	
+	</div>
+
+	<div *ngIf="loading" class="text text-center myloader">
+		  <img height="200" width="auto" src="assets/images/tenor.gif">
+		  <div class="text">
+		    Loading....
+		  </div>
+		</div>
+    <br/><hr>
+  </div>
+  
