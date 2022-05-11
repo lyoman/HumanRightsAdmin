@@ -32,7 +32,7 @@ adminRoles = JSON.parse(localStorage.getItem("isAdmin"));
 
   getResults() {
     this.loading = true;
-    this.apiService.GetData('/new_stock/new_stock/?user='+JSON.parse(localStorage.getItem('user_id'))).subscribe(data => {
+    this.apiService.GetData('/reportcase/report_case').subscribe(data => {
       this.loading = false;
       console.log('all added stock', data['results']);
       this.userResults = data['results'];

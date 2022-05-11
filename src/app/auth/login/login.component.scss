@@ -1,5 +1,5 @@
-// $topnav-background-color: rgb(9, 50, 96);#043c84
-$topnav-background-color: #043c84;
+// $topnav-background-color: rgb(9, 50, 96);#6d0101
+$topnav-background-color: #6d0101;
 :host {
     display: block;
 }
@@ -34,7 +34,7 @@ $topnav-background-color: #043c84;
         border-radius: 0;
     }
     .input-underline:focus {
-        border-bottom: 2px solid #FFA500;
+        border-bottom: 2px solid #d4af37;
         box-shadow: none;
     }
     .rounded-btn {
@@ -88,38 +88,39 @@ $topnav-background-color: #043c84;
     .user-avatar {
         /*  -webkit-border-radius: 100%;
         border-radius: 100%;
-       border: 2px solid #FFA500; */
+       border: 2px solid #d4af37; */
         padding: 1em;
     }
     .outline {
-        border: 2px solid #c79c1c;
+        border: 2px solid #d4af37;
         padding: 1em;
         // background-color: #0b4b8b;
         // background: rgb(9, 50, 96);
-        background-color: #043c84;
-        background: #043c84;
+        background-color: #6d0101;
+        background: #6d0101;
         opacity: 0.9;
     }
     #loginbtn:hover {
-        background-color: #c79c1c;
-        color: rgb(9, 50, 96);
+        background-color: #d4af37;
+        color: white;
     }
     #loginbtn {
         background-color: white;
-        color: rgb(9, 50, 96);
+        color: #6d0101;
     }
     #btnRegister:hover {
-        color: #c79c1c;
+        color: #d4af37;
     }
     .register-btn:hover {
-        color: #c79c1c;
+        color: #d4af37;
     }
 }
 
 #btnRegister:hover {
-    background-color: #c79c1c;
+    background-color: #d4af37;
 }
 
 #bvuma:hover {
-    background-color: #c79c1c;
+    background-color: #d4af37;
+    color: white;
 }

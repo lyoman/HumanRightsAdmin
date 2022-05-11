@@ -14,21 +14,17 @@
         </div>
     </div>
 
-    <div class="row" *ngIf="!loading">
-        <!-- <h3 class="content-style" style="text-align: center;width: 100%;">{{ 'Submitted Results' }}</h3> -->
-        <table class="table table-bordered table-responsive table-striped table-hover raw-materials" *ngIf="userResults">
+    <div class="row mat-elevation-z8" *ngIf="!loading">
+        <table class="table table-hover table-center mb-0 responsive table-striped raw-materials" *ngIf="userResults">
             <thead>
                 <tr>
                     <th>Username</th>
-                    <th>Full name</th>
+                    <!-- <th>Full name</th> -->
                     <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Busines Name</th>
-                  <!--   <th>medicall_staffer</th>
-                    <th>specialist_area</th> -->
-                    <th>Date</th>
+              
                     <th>is_superuser</th>
-                    <!-- <th>is_active</th> -->
+                    <th>is_active</th>
+                    <th>Date Joined</th>
                     <th>View</th>
                 </tr>
             </thead>
@@ -38,35 +34,26 @@
                     <td>
                         <p>{{ m.username }}</p>
                     </td>
-                    <td>
+                    <!-- <td>
                         <p>{{ m.first_name }} {{ m.last_name }}</p>
-                    </td>
+                    </td> -->
                     <td>
                         <p>{{ m.email }}</p>
                     </td>
-                    <td>
-                        <p>{{ m.phone_number }}</p>
-                    </td>
 
-                    <td>
-                        <p>{{ m.business }}</p>
-                    </td>
-            <!--         <td>
-                        <p>{{ m.medicall_staffer }}</p>
-                    </td>
-                    <td>
-                        <p>{{ m.specialist_area }}</p>
-                    </td> -->
-
-                    <td>
-                        <p>{{ m.timestamp | date }}</p>
-                    </td>
+                   
                     <td>
                         <p>{{ m.is_superuser }}</p>
                     </td>
-                    <!-- <td>
+                    <td>
                         <p>{{ m.is_active }}</p>
+                    </td>
+                    <!-- <td *ngIf="is_active == false">
+                        <p>{{ "No" }}</p>
                     </td> -->
+                    <td>
+                        <p>{{ m.timestamp | date }} {{ m.timestamp | date: "shortTime" }}</p>
+                    </td>
                     <td>
                         <button [routerLink]=" ['details', m]" class="btn btn-success">
                             <i class="fa fa-play"></i>

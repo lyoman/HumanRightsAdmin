@@ -14,12 +14,8 @@ export class ViewStockComponent implements OnInit {
   race: any;
   sold = [];
   loading = false;
-  loading2 = false;
 
-  profitloss: any;
-
-  totalAmount = 0;
-  totalQuantitySold = 0;
+  hideMap = "true";
 
   constructor(
     private route: ActivatedRoute,
@@ -28,16 +24,19 @@ export class ViewStockComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getOnePackage(this.route.snapshot.paramMap.get('id'));('');
+    this.getOnePackage(this.route.snapshot.paramMap.get('id'));
+  }
+
+  hidMap(id) {
+    this.hideMap = id;
   }
 
   getOnePackage(id){
     this.loading = true;
-    this.apiService.GetData('/new_stock/new_stock/' + id + '/detail').subscribe(data => {
+    this.apiService.GetData('/reportcase/report_case/' + id + '/detail').subscribe(data => {
         console.log("added items", data)
         this.race = data;
         this.loading = false;
-        this.getOneSold(this.route.snapshot.paramMap.get('id'));
         this.toastr.success('Success', ' Data received successfully');
     },
         err => {
@@ -48,48 +47,32 @@ export class ViewStockComponent implements OnInit {
     );
   }
 
-    getOneSold(id){
-      this.loading2 = true;
-    this.apiService.GetData('/new_stock/sold_stock/?stockname=' + id).subscribe(data => {
-        console.log("sold items", data);
-        this.sold = data;
-
-      const sumall = data.map(item => parseInt(item.amount)).reduce((prev, curr) => prev + curr, 0);
-      console.log(sumall);
-
-      this.totalAmount = sumall;
-
-
-      const sumall1 = data.map(item => parseInt(item.quantity)).reduce((prev, curr) => prev + curr, 0);
-      console.log(sumall1);
-
-      this.totalQuantitySold = sumall1;
-
-      this.profitloss = (this.totalAmount - this.race.amount);
-
-        // if(data.length > 0) {
-        //   for (let j = 0; j<=data.length; j++) {
-        //     // console.log("sold items amount", this.sold[j].amount);
-        //     this.totalAmount = (this.totalAmount + this.sold[j]['amount']);
-        //   }
-
-        //   for (let i = 0; i<=data.length; i++) {
-        //     this.totalQuantitySold = this.totalQuantitySold + parseInt(data[i].quantity);
-        //   }
-        // }
-
-
-
-        this.loading2 = false;
-        this.toastr.success('Success', ' Data received successfully');
-    },
-        err => {
-            console.log(err)
-            this.loading2 = false;
-            this.toastr.error('Error', 'Unable to retrieve data, try again');
-        }
-    );
-  }
+//   "url": "https://humanrights.pythonanywhere.com/api/reportcase/report_case/1/detail/",
+//   "id": 1,
+//   "date_reported": "2022-04-04T16:31:18+02:00",
+//   "type_of_violation": "Denied access to social services like Health facilities, School, Markets place",
+//   "description_of_victims": "Youth",
+//   "names_of_vitims": "Tafara, Kimberly, Chido",
+//   "victim_age": "23, 22, 19",
+//   "victim_gender": "Famale & Male",
+//   "describe_gender": "Two females and one male",
+//   "victim_phone_number": "0775078468",
+//   "victim_address": "230 Bag, Banket",
+//   "description_of_perpetrator": "Artisanal miners ",
+//   "motivations_behind_incident": "To instill fear",
+//   "what_happened": "DESCRIPTION of what happened",
+//   "how_it_happened": "How it happened",
+//   "community_description": "Describe the community",
+//   "evidence_files": "https://humanrights.pythonanywhere.com/media/transpired_description/logo.png",
+//   "location": "Banket",
+//   "latitude": "31.23",
+//   "longitude": "30.03",
+//   "identity_verification": "https://humanrights.pythonanywhere.com/media/identity_verification/banner.jpg",
+//   "read_status": false,
+//   "active": true,
+//   "updated": "2022-04-04T16:37:11.750335+02:00",
+//   "timestamp": "2022-04-04T16:37:11.750374+02:00"
+// }
 
 
 }

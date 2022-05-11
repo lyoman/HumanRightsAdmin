@@ -36,13 +36,13 @@ export class ApiService {
     })
   };
 
-  readonly BaseURI = 'https://smartaccounting.pythonanywhere.com/api';
-  readonly portBaseUrl = 'https://smartaccounting.pythonanywhere.com/api';
+  readonly BaseURI = 'https://humanrights.pythonanywhere.com/api';
+  readonly portBaseUrl = 'https://humanrights.pythonanywhere.com/api';
   // readonly portBaseUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) { }
 
-  // readonly testUrl = 'https://smartaccounting.pythonanywhere.com/api';
+  // readonly testUrl = 'http://humanrights.pythonanywhere.com/api';
 
 
   public GetData(endPoint: string): Observable<any> {

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg fixed-top">
-    <a style="max-height: 40px;" class="navbar-brand" href="/dashboard"><img style="height: 30%;" src="assets/images/header_logo.png"> </a>
+    <a id="head" style="max-height: 40px;" class="navbar-brand" href="/dashboard"><img src="assets/images/imgs/CNRG-Final-logo.png" style="width: 30%;" />Administration  </a>
     <button (click)="toggleSidebar()" class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
         <i aria-hidden="true" class="fa fa-bars text-muted"></i>
@@ -11,7 +11,7 @@
                     <i class="fa fa-user"></i> {{ user.username }}<b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>
-                    <a (click)="onLoggedout()" [routerLink]="['/auth/login']" class="dropdown-item">
+                    <a (click)="onLoggedout()" [routerLink]="['/auth/login']" class="dropdown-item" style="color: white !important;">
                         <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}
                     </a>
                 </div>

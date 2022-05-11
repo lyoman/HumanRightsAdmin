@@ -59,9 +59,9 @@ export class AuthService {
     })
   };
 
-  readonly testUrl = 'https://smartaccounting.pythonanywhere.com/api';
+  readonly testUrl = 'https://humanrights.pythonanywhere.com/api';
 
-  readonly BaseURI = 'https://smartaccounting.pythonanywhere.com/api';
+  readonly BaseURI = 'https://humanrights.pythonanywhere.com/api';
 
   // readonly BaseURI = 'http://localhost:8000/api';
 

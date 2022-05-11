@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   loading: any;
   userResults = [];
   userDetails = [];
+  reports = [];
   userApproval = [];
   userAllApproval = [];
   oneuserDetails = [];
@@ -40,16 +41,8 @@ export class DashboardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.getResults();
-  
 
-    // if(JSON.parse(localStorage.getItem('is_superuser')) == false) {
-    //   this.getApproval();
-    // }
-
-    // if(JSON.parse(localStorage.getItem('is_superuser')) == true) {
-    //   this.getAllApprovals();
-    // }
+    this.getReports();
 
     if(JSON.parse(localStorage.getItem('is_superuser')) == false) {
       this.getOneUser();
@@ -61,20 +54,25 @@ export class DashboardComponent implements OnInit {
     console.log("is_superuser", JSON.parse(localStorage.getItem('is_superuser')));
   }
 
-
-  // pendingReq() {
-  //   this.toastr.info('Pending', "Your Approval Request is still waiting for Approval");
-  // }
-
-  // rejectedReq() {
-  //   this.toastr.error('Rejected', "Your Approval Request was rejected");
-  // }
-
   getUsers() {
     this.loading = true;
     this.apiService.GetData('/users/').subscribe(data => {
       this.loading = false;
       this.userDetails = data;
+    },
+      err => {
+        console.log(err)
+        this.loading = false;
+        this.toastr.error('Error', err.message);
+      }
+    );
+  }
+
+  getReports() {
+    this.loading = true;
+    this.apiService.GetData('/reportcase/report_case/').subscribe(data => {
+      this.loading = false;
+      this.reports = data['results'];
     },
       err => {
         console.log(err)
@@ -97,72 +95,4 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
-
-  // getApproval() {
-  //   this.loading = true;
-  //   this.apiService.GetData('/approvals/?id='+JSON.parse(localStorage.getItem('user_id'))).subscribe(data => {
-  //     this.loading = false;
-  //     if (data.count == 0) {
-  //       this.userApproval = data['results'];
-  //     } else {
-  //       this.userApproval = data['results'][0];
-  //     }
-  //     this.count = data.count;
-  //     // console.log("count", this.userApproval['status']);
-      
-  //   },
-  //     err => {
-  //       console.log(err)
-  //       this.loading = false;
-  //       this.toastr.error('Error', err.message);
-  //     }
-  //   );
-  // }
-
-
-  // getAllApprovals() {
-  //   this.loading = true;
-  //   this.apiService.GetData('/approvals/').subscribe(data => {
-  //     this.loading = false;
-  //     this.userAllApproval = data['results'];
-  //     this.count = data.count;
-  //   },
-  //     err => {
-  //       console.log(err)
-  //       this.loading = false;
-  //       // this.toastr.error('Error', err.message);
-  //     }
-  //   );
-  // }
-
-
-  // saveRequest() {
-  //   this.loading = true;
-
-  //     const formData = {
-  //       user: this.regForm.get('user').value,
-  //     }
-
-  //     this.apiService.PostData('/approvals/Approval_new/', formData).subscribe(data => {
-  //       this.loading = false;
-  //       this.toastr.success('Success', 'Approval Request sent successfully');
-  //       setTimeout(function () {
-  //         location.reload();
-  //       }, 2000);
-  //     },
-  //       err => {
-  //         this.loading = false;
-  //         if (err.status === 400) {
-  //           this.toastr.error('Error.', 'Pliz fill in all fields!');
-  //           this.toastr.error('Error', err.message);
-  //         } else {
-  //           console.log(err)
-  //           this.toastr.error('Error', err.message);
-  //         }
-
-  //       }
-  //     );
-  //   }
-
-
 }

@@ -46,7 +46,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'addstock',
+    path: 'view-reports',
     loadChildren: () => import('./add-stock/add-stock.module').then((m) => m.AddStockModule),
     canActivate: [AuthGuard]
   },

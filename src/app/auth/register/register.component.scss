@@ -1,9 +1,9 @@
 button:hover {
-    background-color: #c79c1c;
+    background-color: #d4af37;
     color: #fff;
 }
 
-$topnav-background-color: #043c84;
+$topnav-background-color: #6d0101;
 :host {
     .navbar {
         background-color: $topnav-background-color;
@@ -50,15 +50,15 @@ $topnav-background-color: #043c84;
 }
 
 .theregister {
-    background-color: #c79c1c;
+    background-color: #d4af37;
 }
 
 .theregister:hover {
-    background-color: #043c84;
+    background-color: #6d0101;
 }
 
 .thelogin:hover {
-    background-color: #043c84;
+    background-color: #6d0101;
 }
 
 // @media screen and (min-width: 500px) {

@@ -36,7 +36,7 @@ export class ViewUserComponent implements OnInit {
     first_name: this.route.snapshot.paramMap.get('first_name'),
     phone_number: this.route.snapshot.paramMap.get('phone_number'),
     last_name: this.route.snapshot.paramMap.get('last_name'),
-    // is_doctor: this.route.snapshot.paramMap.get('is_doctor'),
+    id: this.route.snapshot.paramMap.get('id'),
     medicall_staffer: this.route.snapshot.paramMap.get('medicall_staffer'),
     specialist_area: this.route.snapshot.paramMap.get('specialist_area'),
     is_active: this.route.snapshot.paramMap.get('is_active'),

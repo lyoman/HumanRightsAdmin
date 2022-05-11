@@ -17,7 +17,7 @@ const routes: Routes = [
         component: AddStockComponent
       },
       {
-        path: 'viewstock/:id',
+        path: 'viewreport/:id',
         component: ViewStockComponent
       },
       {

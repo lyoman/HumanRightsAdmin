@@ -9,7 +9,7 @@
     <hr>
 
 
-    <div class="row" *ngIf="!loading">
+    <div class="row mat-elevation-z8" *ngIf="!loading">
         <!-- <h3 class="content-style" style="text-align: center;width: 100%;">{{ 'Submitted Results' }}</h3> -->
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <table class="table table-responsive table-hover table-striped" *ngIf="race">
@@ -24,11 +24,11 @@
                         <td>{{ race.username }}</td>
                     </tr>
 
-                    <tr>
+                    <tr *ngIf="first_name">
                         <td>First Name</td>
                         <td>{{ race.first_name }}</td>
                     </tr>
-                    <tr>
+                    <tr *ngIf="last_name">
                         <td>Last Name</td>
                         <td>{{ race.last_name }}</td>
                     </tr>
@@ -38,7 +38,7 @@
                         <td><a href="mailto: {{ race.email }}" target="_blank">{{ race.email }}</a></td>
                     </tr>
 
-                    <tr>
+                    <tr *ngIf="phone_number">
                         <td>Phone Number</td>
                         <td><a href="tel: {{ race.phone_number }}" target="_blank">{{ race.phone_number }}</a></td>
                     </tr>
@@ -62,19 +62,9 @@
                     <th>Details</th>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td>is_doctor</td>
-                        <td>{{ race.is_doctor }}</td>
-                    </tr> -->
-
                     <tr>
-                        <td>Role</td>
-                        <td>{{ race.role }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>Name of Business</td>
-                        <td>{{ race.business }}</td>
+                        <td>User ID</td>
+                        <td>user_{{ race.id }}</td>
                     </tr>
 
                     <tr>

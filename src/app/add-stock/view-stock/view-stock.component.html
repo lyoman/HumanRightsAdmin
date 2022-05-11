@@ -2,12 +2,12 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a [routerLink]="['/dashboard']">Dashboard</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/addstock']">Added Stock</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Added Stock Details</li>
+            <li class="breadcrumb-item"><a [routerLink]="['/view-reports']">Reports</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Report Full Details</li>
         </ol>
     </nav>
 
-    <h2 class="header-style">Added Stock Details / Profit or Loss $ {{ profitloss }}</h2>
+    <h2 class="header-style">Report Full Details </h2>
     <hr>
 
 
@@ -23,27 +23,18 @@
 
                 <tbody>
                     <tr>
-                        <td>Name</td>
-                        <td>{{ race.name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Quantity</td>
-                        <td>{{ race.quantity }}</td>
+                        <td>Type_of_violation</td>
+                        <td>{{ race.type_of_violation }}</td>
                     </tr>
 
                     <tr>
-                        <td>Description</td>
-                        <td>{{ race.description }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>Amount</td>
-                        <td>{{ race.amount }}</td>
+                        <td>Motivations_behind_incident</td>
+                        <td>{{ race.motivations_behind_incident }}</td>
                     </tr>
 
                     <tr>
                         <td>Date</td>
-                        <td>{{ race.timestamp | date }}</td>
+                        <td>{{ race.date_reported | date }}</td>
                     </tr>
 
                     <tr>
@@ -54,6 +45,11 @@
                     <tr>
                         <td>Updated</td>
                         <td>{{ race.updated | date }} {{ race.updated | date: 'shortTime' }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Database ID</td>
+                        <td>{{ race.id }}</td>
                     </tr>
 
                 </tbody>
@@ -69,47 +65,216 @@
                 <tbody>
 
                     <tr>
-                        <td>Business Name</td>
-                        <td>{{ race.user.business }}</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Username</td>
-                        <td>{{ race.user.username }}</td>
-                    </tr>
-
-
-                    <tr *ngIf="race.user.phone_number">
-                        <td>Phone Number</td>
-                        <td><a href="tel: {{ race.user.phone_number }}" target="_blank">{{ race.user.phone_number }}</a></td>
+                        <td>Description_of_perpetrator</td>
+                        <td>{{ race.description_of_perpetrator }}</td>
                     </tr>
 
                     <tr>
-                        <td>Email</td>
-                        <td><a href="mailto: {{ race.user.email }}" target="_blank">{{ race.user.email }}</a></td>
+                        <td>What_happened</td>
+                        <td>{{ race.what_happened }}</td>
                     </tr>
-
-                    <tr *ngIf="race.user.first_name">
-                        <td>First Name</td>
-                        <td>{{ race.user.first_name }}</td>
-                    </tr>
-
-                    <tr *ngIf="race.user.last_name">
-                        <td>Last Name</td>
-                        <td>{{ race.user.last_name }}</td>
-                    </tr>
-
 
                     <tr>
-                        <td>Database ID</td>
-                        <td>{{ race.id }}</td>
+                        <td>How_it_happened</td>
+                        <td>{{ race.how_it_happened }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Community_description</td>
+                        <td>{{ race.community_description }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Location</td>
+                        <td>{{ race.location }} 
+                            <button *ngIf="hideMap == 'true'" (click)="hidMap('false')" class="btn btn-md btn-primary">View Map</button>
+                            <button *ngIf="hideMap == 'false'" (click)="hidMap('true')" class="btn btn-md btn-secondary">Hide Map</button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Cordinates</td>
+                        <td>({{ race.latitude }}, {{ race.longitude }})</td>
                     </tr>
 
                 </tbody>
             </table>
         </div>
 
+        <style>iframe {width:100%;height:100%;}</style>
+
+        <!-- <iframe id="mapframe" frameborder="0" style="border:0;width:100%;height:500px;" src="https://www.google.com/maps/embed/v1/directions?origin=" + {{race.latitude}} + "," + {{ race.longitude }} allowfullscreen></iframe>'; -->
+
+        <div class="mapouter container" *ngIf="hideMap == 'false'">
+            <div class="gmap_canvas" *ngIf="race"><iframe width="600" height="500" id="gmap_canvas"
+                    src="https://maps.google.com/maps?q=race.latitude,race.longitude&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                    href="https://www.whatismyip-address.com/divi-discount/">divi discount</a><br>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 500px;
+                        width: 600px;
+                    }
+                </style><a href="https://www.embedgooglemap.net"></a>
+                <style>
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 500px;
+                        width: 600px;
+                    }
+                </style>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mat-elevation-z8" *ngIf="race">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="race">
+            <h2 class="content-style">Details of the victim</h2><br>
+
+            <table class="table table-responsive table-hover table-striped">
+                <thead>
+                    <th>Variable Name</th>
+                    <th>Details</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Names_of_vitims</td>
+                        <td>{{ race.names_of_vitims }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Description_of_victims</td>
+                        <td>{{ race.description_of_victims }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Names_of_vitims</td>
+                        <td>{{ race.names_of_vitims }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Victim_age</td>
+                        <td>{{ race.victim_age }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Victim_gender</td>
+                        <td>{{ race.victim_gender }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Describe_gender</td>
+                        <td>{{ race.describe_gender }}</td>
+                    </tr>
+
+                    <!-- <tr>
+                        <td>victim_phone_number</td>
+                        <td>{{ race.victim_phone_number }}</td>
+                    </tr> -->
+
+                    <tr>
+                        <td>Victim_address</td>
+                        <td>{{ race.victim_address }}</td>
+                    </tr>
+
+                    <tr *ngIf="race.victim_phone_number">
+                        <td>Phone Number</td>
+                        <td><a href="tel: {{ race.victim_phone_number }}" target="_blank">{{ race.victim_phone_number
+                                }}</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mat-elevation-z8" *ngIf="race">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="race.company">
+            <h2 class="content-style">Company Details</h2><br>
+
+            <table class="table table-responsive table-hover table-striped">
+                <thead>
+                    <th>Variable Name</th>
+                    <th>Details</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Company Name</td>
+                        <td>{{ race.company.name }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Company description</td>
+                        <td>{{ race.company.description }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Company location</td>
+                        <td>{{ race.company.location }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Company owners</td>
+                        <td>{{ race.company.owners }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>When it started operating</td>
+                        <td>{{ race.company.when_it_started_operating }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mat-elevation-z8" *ngIf="race">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="race.user">
+            <h2 class="content-style">Reporter's Details</h2><br>
+
+            <table class="table table-responsive table-hover table-striped">
+                <thead>
+                    <th>Variable Name</th>
+                    <th>Details</th>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Username</td>
+                        <td>{{ race.user.username }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Email</td>
+                        <td>{{ race.user.email }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>User Id</td>
+                        <td>user_{{ race.user.id }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mat-elevation-z8">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="race">
+            <h2 class="content-style">identity_verification</h2><br>
+            <a href="{{ race.identity_verification }}" download="{{ race.identity_verification }}" target="_blank"><img
+                    id="img" [src]="race.identity_verification" alt="identity_verification" /></a>
+
+
+            <h2 class="content-style">evidence_files</h2><br>
+            <a href="{{ race.evidence_files }}" download="{{ race.evidence_files }}" target="_blank"><img id="img"
+                    [src]="race.evidence_files" alt="evidence_files" /></a>
+            <!-- <img id="img" [src]="race.evidence_files" alt="evidence_files" /> -->
+        </div>
     </div>
 
     <div *ngIf="loading" class="text text-center myloader">
@@ -118,67 +283,7 @@
             Loading....
         </div>
     </div>
-    <br/>
+    <br />
     <hr>
-
-
-    <h2 class="content-style">Sold Stock Details</h2>
-
-    <div class="row mat-elevation-z8">
-
-
-
-        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" *ngIf="!loading2">
-            <table class="table table-responsive table-hover table-striped" *ngIf="sold">
-                <thead>
-                    <th>Variable Name</th>
-                    <th>Details</th>
-                </thead>
-                <tbody>
-
-                    <!-- <tr>
-			      <td>Name</td>
-			      <td>{{ sold.name }}</td>
-			    </tr>
- -->
-
-                    <tr *ngIf="race">
-                        <td>Total Quantity Left</td>
-                        <td>{{ race.quantity - totalQuantitySold }}</td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Total Quantity Sold</td>
-                        <td>{{ totalQuantitySold }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>Total Amount Sold</td>
-                        <td>$ {{ totalAmount }}</td>
-                    </tr>
-
-                    <tr *ngIf="profitloss < 0">
-                        <td>Loss ({{ profitloss }})</td>
-                        <td style="background-color: red; font-weight: bold;color: white">$ {{ profitloss * -1 }}</td>
-                    </tr>
-
-                    <tr *ngIf="profitloss > 0">
-                        <td>Profit ({{ profitloss }})</td>
-                        <td style="background-color: green;">$ {{ profitloss }}</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-
-
-        <div *ngIf="loading2" class="text text-center myloader">
-            <img height="200" width="auto" src="assets/images/tenor.gif">
-            <div class="text">
-                Loading....
-            </div>
-        </div>
-    </div>
 
 </div>

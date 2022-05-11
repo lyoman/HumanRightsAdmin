@@ -77,7 +77,8 @@ export class LoginComponent implements OnInit {
           this.getResults(JSON.parse(localStorage.getItem('user_id')));
           this.toastr.success('Welcome!', 'Authentication successful.');
           localStorage.setItem('isLoggedin', 'true');
-          this.router.navigateByUrl('/dashboard');
+          // location.reload();
+          // this.router.navigateByUrl('/dashboard');
         },
 
         err => {
@@ -108,6 +109,7 @@ export class LoginComponent implements OnInit {
       console.log("superuser", JSON.parse(localStorage.getItem('is_superuser')));
       localStorage.setItem('is_staff', JSON.stringify(this.race['is_staff']));
       localStorage.setItem('is_active', JSON.stringify(this.race['is_active']));
+      this.router.navigateByUrl('/dashboard');
       // location.reload();
     },
       err => {
