@@ -15,7 +15,7 @@
     </div>
 
     <div class="row mat-elevation-z8" *ngIf="!loading">
-        <table class="table table-hover table-center mb-0 responsive table-striped raw-materials" *ngIf="userResults">
+        <table class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials" *ngIf="userResults">
             <thead>
                 <tr>
                     <th>Username</th>
@@ -28,9 +28,9 @@
                     <th>View</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="details">
 
-                <tr class="details" *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
+                <tr *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
                     <td>
                         <p>{{ m.username }}</p>
                     </td>

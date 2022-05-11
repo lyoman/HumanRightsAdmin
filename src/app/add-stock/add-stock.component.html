@@ -21,7 +21,7 @@
   </div>
 
   <div class="row mat-elevation-z8" *ngIf="!loading">
-    <table class="table table-hover table-center mb-0 responsive table-striped raw-materials" *ngIf="userResults">
+    <table class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials" *ngIf="userResults">
       <thead>
         <tr>
           <th>Type of violation</th>
@@ -32,9 +32,9 @@
           <th>View</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="details">
 
-        <tr class="details"
+        <tr
           *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
           <td>
             <p>{{ m.type_of_violation }}</p>
@@ -61,6 +61,7 @@
         </tr>
       </tbody>
     </table>
+    
     <div *ngIf="userResults" class="col-sm-12 row d-flex justify-content-center">
       <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="userResults.length">
       </ngb-pagination>

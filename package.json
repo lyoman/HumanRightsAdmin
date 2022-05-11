@@ -1,5 +1,5 @@
 {
-    "name": "smartaccounting",
+    "name": "cnrgadmin",
     "version": "2.1.0",
     "scripts": {
         "ng": "ng",
@@ -8,7 +8,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "prod": "ng build --prod --base-href /smartaccounting/"
+        "prod": "ng build --prod --base-href /cnrgadmin/"
     },
     "private": true,
     "dependencies": {
