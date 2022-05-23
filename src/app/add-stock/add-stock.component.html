@@ -9,11 +9,26 @@
   <hr>
 
   <div class="row">
-    <div class="form-group col-md-5">
-                <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search" class="form-control" />
-            </div>
+    <div class="form-group col-md-4">
+      <label>Search filter</label>
+      <input type="text" name="search" [(ngModel)]="searchText" placeholder="Search..." class="form-control" />
+    </div>
 
-            <!-- <div class="col-md-2 justify-content-end">
+    <div class="form-group col-md-3">
+      <label>Start Date</label>
+      <input type="date" name="search" [(ngModel)]="startDate" placeholder="Search" class="form-control" />
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>End Date</label>
+      <input type="date" name="search" [(ngModel)]="endDate" placeholder="Search" class="form-control" />
+    </div>
+
+    <div class="form-group col-md-2">
+      <button class="btn btn-md btn-primary" (click)="filterDate(startDate, endDate)" type="button">Submit</button>
+    </div>
+
+    <!-- <div class="col-md-2 justify-content-end">
                 <button [routerLink]="['new']" class="btn btn-primary">
                     <i class="fa fa-plus"></i>
                 </button>
@@ -21,8 +36,30 @@
   </div>
 
   <div class="row mat-elevation-z8" *ngIf="!loading">
-    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button>
-    <table id="excel-table" class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials" *ngIf="userResults">
+    <!-- <div class="row">
+      <div class="form-group col-md-4">
+        <label>Start Date</label>
+        <input type="date" name="search" [(ngModel)]="startDate" placeholder="Search" class="form-control" />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label>End Date</label>
+        <input type="date" name="search" [(ngModel)]="endDate" placeholder="Search" class="form-control" />
+      </div>
+
+      <div class="form-group col-md-2">
+        <button class="btn btn-md btn-primary" type="button">Submit</button>
+      </div>
+
+    </div> -->
+    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button><hr><br>
+
+    <div class="row container" *ngIf="checkRange == 'yes'">
+      <p style="color: green;font-weight: bold;font-size: large;margin-top: 1%;">Displaying data from {{ startDate | date }} to {{ endDate | date }}</p>
+    </div>
+    <table id="excel-table"
+      class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials"
+      *ngIf="userResults">
       <thead>
         <tr>
           <th>Type of violation</th>
@@ -35,12 +72,11 @@
       </thead>
       <tbody class="details">
 
-        <tr
-          *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
+        <tr *ngFor="let m of userResults  | filter: searchText | slice: (page-1) * pageSize : page * pageSize">
           <td>
             <p>{{ m.type_of_violation }}</p>
           </td>
-          
+
           <td>
             <p>{{ m.location }}</p>
           </td>
@@ -53,7 +89,7 @@
           <td>
             <p>{{ m.date_reported | date }} {{ m.date_reported | date: "shortTime" }}</p>
           </td>
-          
+
           <td>
             <button [routerLink]=" ['viewreport', m.id]" class="btn btn-success">
               <i class="fa fa-play"></i>
@@ -62,7 +98,7 @@
         </tr>
       </tbody>
     </table>
-    
+
     <div *ngIf="userResults" class="col-sm-12 row d-flex justify-content-center">
       <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="userResults.length">
       </ngb-pagination>

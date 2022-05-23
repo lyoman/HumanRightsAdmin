@@ -18,7 +18,13 @@ export class AddStockComponent implements OnInit {
   pageSize = 15;
 
   userResults = [];
+  userResults1 = [];
   fileName = 'ExcelSheet.xlsx';
+
+  startDate = new Date();
+  endDate = new Date();
+
+  checkRange: any;
 
   constructor(
     private toastr: ToastrService,
@@ -28,7 +34,14 @@ export class AddStockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getResults();
+    this.checkRange = localStorage.getItem("fitDate");
+    if (localStorage.getItem("fitDate") == "yes"){
+      this.getRangeItems(localStorage.getItem("startDate"), localStorage.getItem("endDate"));
+      this.startDate = new Date(localStorage.getItem("startDate"));
+      this.endDate = new Date(localStorage.getItem("endDate"));
+    } else {
+      this.getResults();
+    }
   }
 
   exportexcel(): void {
@@ -45,13 +58,32 @@ export class AddStockComponent implements OnInit {
 
   }
 
+  filterDate(start, end){
+    this.startDate = start;
+    this.endDate = end;
+    console.log("start end", start);
+    localStorage.setItem("fitDate", "yes");
+    localStorage.setItem("startDate", start);
+    localStorage.setItem("endDate", end);
+    location.reload();
+  }
 
-  getResults() {
+
+  async getResults() {
     this.loading = true;
-    this.apiService.GetData('/reportcase/report_case').subscribe(data => {
+    await this.apiService.GetData('/reportcase/report_case').subscribe(data => {
       this.loading = false;
       console.log('all added stock', data['results']);
-      this.userResults = data['results'];
+      this.userResults1 = data['results'];
+
+      for (let i=0; i < data['results'].length; i++) {
+        console.log("data[0]", data['results'][i]);
+        if (this.startDate <= new Date(data['results'][i]["timestamp"]) && this.endDate >= new Date(data['results'][i]["timestamp"])){
+          this.userResults.push(data['results'][i]);
+          console.log("print", this.userResults);
+        }
+      }
+      // if()
     },
       err => {
         console.log(err)
@@ -60,5 +92,29 @@ export class AddStockComponent implements OnInit {
       }
     );
   }
+
+ async getRangeItems(startDate, endDate) {
+  this.loading = true;
+  await this.apiService.GetData('/reportcase/report_case').subscribe(data => {
+    this.loading = false;
+    console.log('all added stock', data['results']);
+    this.userResults1 = data['results'];
+
+    for (let i=0; i < data['results'].length; i++) {
+      console.log("range data", data['results'][i]);
+      if (new Date(startDate) <= new Date(data['results'][i]["timestamp"]) && new Date(endDate) >= new Date(data['results'][i]["timestamp"])){
+        this.userResults.push(data['results'][i]);
+        console.log("print", this.userResults);
+      }
+    }
+    // if()
+  },
+    err => {
+      console.log(err)
+      this.loading = false;
+      this.toastr.error('Error', err.message);
+    }
+  );
+ }
 
 }
