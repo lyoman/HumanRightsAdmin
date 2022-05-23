@@ -21,7 +21,8 @@
   </div>
 
   <div class="row mat-elevation-z8" *ngIf="!loading">
-    <table class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials" *ngIf="userResults">
+    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button>
+    <table id="excel-table" class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials" *ngIf="userResults">
       <thead>
         <tr>
           <th>Type of violation</th>

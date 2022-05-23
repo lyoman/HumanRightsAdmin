@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from './../services/api.service';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-add-stock',
@@ -9,7 +10,7 @@ import { ApiService } from './../services/api.service';
 })
 export class AddStockComponent implements OnInit {
 
-adminRoles = JSON.parse(localStorage.getItem("isAdmin"));
+  adminRoles = JSON.parse(localStorage.getItem("isAdmin"));
   loading: any;
 
   searchText;
@@ -17,6 +18,7 @@ adminRoles = JSON.parse(localStorage.getItem("isAdmin"));
   pageSize = 15;
 
   userResults = [];
+  fileName = 'ExcelSheet.xlsx';
 
   constructor(
     private toastr: ToastrService,
@@ -27,6 +29,20 @@ adminRoles = JSON.parse(localStorage.getItem("isAdmin"));
 
   ngOnInit(): void {
     this.getResults();
+  }
+
+  exportexcel(): void {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    /* save to file */
+    XLSX.writeFile(wb, this.fileName);
+
   }
 
 
