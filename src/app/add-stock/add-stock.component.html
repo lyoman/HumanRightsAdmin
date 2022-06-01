@@ -64,10 +64,78 @@
         <tr>
           <th>Type of violation</th>
           <th>Location</th>
-          <th>What happened</th>
-          <th>Description of perpetrator</th>
           <th>Date Reported</th>
+
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+          <th>Location</th>
+
+          <th>Sexual violence (Affected people)</th>
+          <th>Sexual violence (Type)</th>
+          <th>Sexual violence (company involved)</th>
+          <th>Sexual violence (who did this)</th>
+
+          <th>Group of people</th>
+          <th>Number of people</th>
+          <th>How they died</th>
+          <th>How they died description</th>
+          <th>Company involved</th>
+          
+          <th>Description of what happened</th>
+
+          <th>Reporter's Phone number</th>
+          <th>Reporter's Address</th>
+          <th>Reporter's Email</th>
+
+          <!-- location -->
+          <th>Name of Area</th>
+          <th>Province</th>
+          <th>District</th>
+          <th>Ward name</th>
           <th>View</th>
+
+          <!-- "rf_company_involved": "",
+            "la_company_involved": "",
+            "fu_company_involved": "",
+            "cl_company_involved": "",
+            "cl_number_of_children": "",
+            "es_which_resource": "",
+            "es_who_is_smuggling": "",
+            "es_company_involved": "",
+            "sv_affected_people": "",
+            "sv_type": "",
+            "sv_company_involved": "",
+            "sv_who_did_this": "",
+            "mk_groups_of_persons": "",
+            "mk_number_of_people": "",
+            "mk_how_they_died": "",
+            "mk_murder_other": "",
+            "mk_company_involved": "",
+            "what_happened": "",
+            "reporter_phone": null,
+            "reporter_address": "",
+            "reporter_email": "",
+            "name_of_area": "",
+            "village": "",
+            "chief": "",
+            "ward_name": "",
+            "location": "",
+            "district": "Chivi",
+            "province": "Masvingo Province",
+            "latitude": null,
+            "longitude": null -->
+
         </tr>
       </thead>
       <tbody class="details">
@@ -80,14 +148,156 @@
           <td>
             <p>{{ m.location }}</p>
           </td>
+
+          <td>
+            <p>{{ m.date_reported | date }} {{ m.date_reported | date: "shortTime" }}</p>
+          </td>
+
+          <!-- new stuff -->
+          <!-- forced -->
+          <td>
+            <p>{{ m.fd_how_many_removed }}</p>
+          </td>
+          <td>
+            <p>{{ m.fd_alternative_place }}</p>
+          </td>
+          <td>
+            <p>{{ m.fd_alternative_place_description }}</p>
+          </td>
+
+          <!-- Exposure -->
+          <td>
+            <p>{{ m.ep_what_kind }}</p>
+          </td>
+          <td>
+            <p>{{ m.ep_source }}</p>
+          </td>
+          <td>
+            <p>{{ m.ep_source_description }}</p>
+          </td>
+          <td>
+            <p>{{ m.ep_num_people_exposed }}</p>
+          </td>
+          <td>
+            <p>{{ m.ep_who_is_responsible }}</p>
+          </td>
+
+
+          <td>
+            <p>{{ m.ll_assests_lost }}</p>
+          </td>
+          <td>
+            <p>{{ m.ll_who_is_responsible }}</p>
+          </td>
+          <td>
+            <p>{{ m.ll_families_affected }}</p>
+          </td>
+
+
+          <td>
+            <p>{{ m.dc_how_many_graves }}</p>
+          </td>
+          <td>
+            <p>{{ m.dc_who_desecrated_them }}</p>
+          </td>
+
+
+          <td>
+            <p>{{ m.ti_type }}</p>
+          </td>
+          <td>
+            <p>{{ m.ti_other }}</p>
+          </td>
+
+          <td>
+            <p>{{ m.ti_groups_affected }}</p>
+          </td>
+          <td>
+            <p>{{ m.ti_who_did_this }}</p>
+          </td>
+
+          <td>
+            <p>{{ m.ti_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.ti_the_reason }}</p>
+          </td>
+
+          <!-- new stuff -->
+          <td>
+            <p>{{ m.rf_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.la_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.fu_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.cl_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.cl_number_of_children }}</p>
+          </td>
+          <td>
+            <p>{{ m.es_which_resource }}</p>
+          </td>
+          <td>
+            <p>{{ m.es_who_is_smuggling }}</p>
+          </td>
+          <td>
+            <p>{{ m.es_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.sv_affected_people }}</p>
+          </td>
+          <td>
+            <p>{{ m.sv_type }}</p>
+          </td>
+          <td>
+            <p>{{ m.sv_company_involved }}</p>
+          </td>
+          <td>
+            <p>{{ m.sv_who_did_this }}</p>
+          </td>
+          <td>
+            <p>{{ m.mk_groups_of_persons }}</p>
+          </td>
+          <td>
+            <p>{{ m.mk_number_of_people }}</p>
+          </td>
+          <td>
+            <p>{{ m.mk_how_they_died }}</p>
+          </td>
+          <td>
+            <p>{{ m.mk_murder_other }}</p>
+          </td>
+          <td>
+            <p>{{ m.mk_company_involved }}</p>
+          </td>
           <td>
             <p>{{ m.what_happened }}</p>
           </td>
           <td>
-            <p>{{ m.description_of_perpetrator }}</p>
+            <p>{{ m.reporter_phone }}</p>
           </td>
           <td>
-            <p>{{ m.date_reported | date }} {{ m.date_reported | date: "shortTime" }}</p>
+            <p>{{ m.reporter_address }}</p>
+          </td>
+          <td>
+            <p>{{ m.reporter_email }}</p>
+          </td>
+          <td>
+            <p>{{ m.name_of_area }}</p>
+          </td>
+          <td>
+            <p>{{ m.province }}</p>
+          </td>
+          <td>
+            <p>{{ m.district }}</p>
+          </td>
+          <td>
+            <p>{{ m.ward_name }}</p>
           </td>
 
           <td>
