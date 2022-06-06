@@ -70,9 +70,9 @@ export class AddStockComponent implements OnInit {
 
 
   async getResults() {
-    // var myCurrentDate = new Date();
-    // var myPastDate = new Date(myCurrentDate);
-    // this.startDate = new Date(myPastDate.setDate(myPastDate.getDate() - 30));
+    var myCurrentDate = new Date();
+    var myPastDate = new Date(myCurrentDate);
+    this.startDate = new Date(myPastDate.setDate(myPastDate.getDate() - 30));
     this.loading = true;
     await this.apiService.GetData('/reportcase/report_case').subscribe(data => {
       this.loading = false;

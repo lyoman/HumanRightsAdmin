@@ -31,11 +31,11 @@
 
   <div class="row mat-elevation-z8" *ngIf="!loading">
 
-    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button>
+    <button class="form-group btn btn-primary btn-md btn-block" style="margin: 0 1%;" (click)="exportexcel()">Export to Excel</button>
     <hr><br>
 
-    <div class="row container" *ngIf="checkRange == 'yes'">
-      <p style="color: green;font-weight: bold;font-size: large;margin-top: 1%;">Displaying data from {{ startDate |
+    <div class="row container form-group" *ngIf="checkRange == 'yes'">
+      <p style="color: green;font-weight: bold;font-size: large;margin-top: 2%;">Displaying data from {{ startDate |
         date }} to {{ endDate | date }}</p>
     </div>
     <table id="excel-table"
