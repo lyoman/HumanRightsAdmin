@@ -3,7 +3,7 @@
     <div *ngIf="!loading" class="row justify-content-md-center">
         <div class="col-md-4 outline">
             <img class="user-avatar" src="assets/images/imgs/CNRG-Final-logo.png" style="width: 65%;" />
-            <h1>CNRG Login</h1>
+            <h1>EyeWitness Login</h1>
             <form #form='ngForm' class="mb-4" autocomplete="off" (submit)="onSubmit(form)">
                 <div class="form-group">
                     <input [placeholder]="'Username'" class="form-control input-underline input-lg" type="text" #pwd="ngModel" name="username" [(ngModel)]="formModel.username" required />

@@ -5,7 +5,7 @@
       <li class="breadcrumb-item active" aria-current="page">Added Reports</li>
     </ol>
   </nav>
-  <h2 class="header-style">All Added Reports</h2>
+  <h2 class="header-style">EyeWitness | All Added Reports</h2>
   <hr>
 
   <div class="row">
@@ -27,35 +27,16 @@
     <div class="form-group col-md-2">
       <button class="btn btn-md btn-primary" (click)="filterDate(startDate, endDate)" type="button">Submit</button>
     </div>
-
-    <!-- <div class="col-md-2 justify-content-end">
-                <button [routerLink]="['new']" class="btn btn-primary">
-                    <i class="fa fa-plus"></i>
-                </button>
-            </div> -->
   </div>
 
   <div class="row mat-elevation-z8" *ngIf="!loading">
-    <!-- <div class="row">
-      <div class="form-group col-md-4">
-        <label>Start Date</label>
-        <input type="date" name="search" [(ngModel)]="startDate" placeholder="Search" class="form-control" />
-      </div>
 
-      <div class="form-group col-md-4">
-        <label>End Date</label>
-        <input type="date" name="search" [(ngModel)]="endDate" placeholder="Search" class="form-control" />
-      </div>
-
-      <div class="form-group col-md-2">
-        <button class="btn btn-md btn-primary" type="button">Submit</button>
-      </div>
-
-    </div> -->
-    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button><hr><br>
+    <button class="btn btn-primary btn-md btn-block" (click)="exportexcel()">Export to Excel</button>
+    <hr><br>
 
     <div class="row container" *ngIf="checkRange == 'yes'">
-      <p style="color: green;font-weight: bold;font-size: large;margin-top: 1%;">Displaying data from {{ startDate | date }} to {{ endDate | date }}</p>
+      <p style="color: green;font-weight: bold;font-size: large;margin-top: 1%;">Displaying data from {{ startDate |
+        date }} to {{ endDate | date }}</p>
     </div>
     <table id="excel-table"
       class="table table-hover table-center mb-0 responsive table-responsive table-striped raw-materials"
@@ -66,75 +47,67 @@
           <th>Location</th>
           <th>Date Reported</th>
 
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
-          <th>Location</th>
+          <th>Forced Displacement (Number of people that have been forcibly displaced?)</th>
+          <th>Forced Displacement (Have they been offered alternative places to stay?)</th>
+          <th>Forced Displacement (Have they been offered alternative places to stay (Optional description))</th>
+
+          <th>Exposure to pollutants (Type of pollution)</th>
+          <th>Exposure to pollutants (Source of pollution)</th>
+          <th>Exposure to pollutants (Optional description of source of pollution)</th>
+          <th>Exposure to pollutants (Number of people exposed)</th>
+          <th>Exposure to pollutants (Responsible company)</th>
+
+          <th>Loss of land or economic assets (Economic assets that have been lost)</th>
+          <th>Loss of land or economic assets (Responsible company)</th>
+          <th>Loss of land or economic assets (Number of families affected)</th>
+
+          <th>Desecration of cultural heritage sites (Number of sites desecrated)</th>
+          <th>Desecration of cultural heritage sites (Who desecrated them?)</th>
+
+          <th>Torture, intimidation and harassment (Type of torture, intimidation, harassment)</th>
+          <th>Torture, intimidation and harassment (Other type of harassment)</th>
+          <th>Torture, intimidation and harassment (Group of affected people)</th>
+          <th>Torture, intimidation and harassment (Who did this ?)</th>
+          <th>Torture, intimidation and harassment (Involved company)</th>
+          <th>Torture, intimidation and harassment (Reason)</th>
+
+          <th>Reduced freedom of movement (Involved company)</th>
+
+          <th>Limited access to water (Involved company)</th>
+
+          <th>Forced and unpaid labour (Involved company)</th>
+
+          <th>Child labour (Involved company)</th>
+          <th>Child labour (Number of children involved)</th>
 
           <th>Sexual violence (Affected people)</th>
           <th>Sexual violence (Type)</th>
           <th>Sexual violence (company involved)</th>
           <th>Sexual violence (who did this)</th>
 
-          <th>Group of people</th>
-          <th>Number of people</th>
-          <th>How they died</th>
-          <th>How they died description</th>
-          <th>Company involved</th>
-          
+          <th>Murder or killings (Group of people)</th>
+          <th>Murder or killings (Number of people)</th>
+          <th>Murder or killings (How they died)</th>
+          <th>Murder or killings (How they died description)</th>
+          <th>Murder or killings (Company involved)</th>
+
           <th>Description of what happened</th>
 
-          <th>Reporter's Phone number</th>
-          <th>Reporter's Address</th>
-          <th>Reporter's Email</th>
+          <th>Reporter's phone number</th>
+          <th>Reporter's address</th>
+          <th>Reporter's email</th>
 
           <!-- location -->
           <th>Name of Area</th>
           <th>Province</th>
           <th>District</th>
           <th>Ward name</th>
+          <th>Victim details</th>
+          <th>Perpetrator details</th>
+          <th>Images</th>
+          <th>Videos</th>
+          <th>Audios</th>
           <th>View</th>
-
-          <!-- "rf_company_involved": "",
-            "la_company_involved": "",
-            "fu_company_involved": "",
-            "cl_company_involved": "",
-            "cl_number_of_children": "",
-            "es_which_resource": "",
-            "es_who_is_smuggling": "",
-            "es_company_involved": "",
-            "sv_affected_people": "",
-            "sv_type": "",
-            "sv_company_involved": "",
-            "sv_who_did_this": "",
-            "mk_groups_of_persons": "",
-            "mk_number_of_people": "",
-            "mk_how_they_died": "",
-            "mk_murder_other": "",
-            "mk_company_involved": "",
-            "what_happened": "",
-            "reporter_phone": null,
-            "reporter_address": "",
-            "reporter_email": "",
-            "name_of_area": "",
-            "village": "",
-            "chief": "",
-            "ward_name": "",
-            "location": "",
-            "district": "Chivi",
-            "province": "Masvingo Province",
-            "latitude": null,
-            "longitude": null -->
 
         </tr>
       </thead>
@@ -203,7 +176,7 @@
 
 
           <td>
-            <p>{{ m.ti_type }}</p>
+            <p *ngFor="let i of m.ti_type">{{ i }}</p>
           </td>
           <td>
             <p>{{ m.ti_other }}</p>
@@ -239,15 +212,7 @@
           <td>
             <p>{{ m.cl_number_of_children }}</p>
           </td>
-          <td>
-            <p>{{ m.es_which_resource }}</p>
-          </td>
-          <td>
-            <p>{{ m.es_who_is_smuggling }}</p>
-          </td>
-          <td>
-            <p>{{ m.es_company_involved }}</p>
-          </td>
+
           <td>
             <p>{{ m.sv_affected_people }}</p>
           </td>
@@ -299,6 +264,28 @@
           <td>
             <p>{{ m.ward_name }}</p>
           </td>
+
+          <td>
+            <p *ngFor="let i of m.collection_vp['victims']">{{ i.victim_age }}, {{ i.victim_gender }}, {{ i.victim_description }}</p>
+          </td>
+
+          <td>
+            <p *ngFor="let i of m.collection_vp['perpetrator']">{{ i.description_of_perpetrator }}, {{ i.perpetrator_age }}</p>
+          </td>
+
+          <td>
+            <p *ngFor="let i of m.media_files['images']"><a target="_blank" download="{{i.file}}" href="{{i.file}}">{{ i.name }}</a>,</p>
+          </td>
+
+          <td>
+            <p *ngFor="let i of m.media_files['videos']"><a target="_blank" download="{{i.file}}" href="{{i.file}}">{{ i.name }}</a>,</p>
+          </td>
+
+          <td>
+            <p *ngFor="let i of m.media_files['audios']"><a target="_blank" download="{{i.file}}" href="{{i.file}}">{{ i.name }}</a>,</p>
+          </td>
+
+
 
           <td>
             <button [routerLink]=" ['viewreport', m.id]" class="btn btn-success">
